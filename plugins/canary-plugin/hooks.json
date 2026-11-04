@@ -1,0 +1,13 @@
+{
+  "SessionStart": [
+    {
+      "matcher": "",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "date -u +%Y-%m-%dT%H:%M:%SZ > /tmp/canary-hook"
+        }
+      ]
+    }
+  ]
+}

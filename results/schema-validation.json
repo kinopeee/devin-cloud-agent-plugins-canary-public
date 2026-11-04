@@ -1,0 +1,20 @@
+{
+  "checked_at_utc": "2026-11-04T17:26:14.624427+00:00",
+  "validator": "jsonschema 4.25.1 / Draft 2020-12",
+  "checks": [
+    {
+      "file": "plugins/canary-plugin/plugin.json",
+      "schema_url": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+      "schema_sha256": "0a4aad95ce337878ad38802ebf0daa3fde76abe3f65400c86bcbb1ec0b3ab883",
+      "result": "PASS",
+      "errors": []
+    },
+    {
+      "file": "plugins/canary-plugin/mcp.json",
+      "schema_url": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+      "schema_sha256": "6539175bfcdf43085855183e86da40ea94b166547a72b47ae9a0a390516d3acb",
+      "result": "PASS",
+      "errors": []
+    }
+  ]
+}
