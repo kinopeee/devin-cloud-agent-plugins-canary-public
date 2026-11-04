@@ -1,0 +1,136 @@
+{
+  "started_at_utc": "2026-11-04T17:29:52.404615+00:00",
+  "started_at_jst": "2026-11-05T02:29:52.404615+09:00",
+  "finished_at_utc": "2026-11-04T17:29:52.441791+00:00",
+  "repository": "https://github.com/kinopeee/devin-cloud-agent-plugins-canary-public",
+  "branch": "condition-a-local",
+  "commit": "1acf30d8f0f8f7b79574ca3efc9d0c22e8fbf551",
+  "platform": {
+    "system": "Linux",
+    "release": "6.8.0-1060-aws"
+  },
+  "interpreter": {
+    "implementation": "CPython",
+    "version": "3.12.16"
+  },
+  "mcp_configuration": {
+    "type": "stdio",
+    "command": "python3",
+    "args": [
+      "${PLUGIN_ROOT}/canary_server.py"
+    ]
+  },
+  "configuration_sha256": "228c9aaeb0180bc7a5f30c432e2c73cc49b4e3ff3168a4ecf1fc7d09b67a93cc",
+  "cwd": "/tmp/devin-canary-stdio/plugins/canary-plugin",
+  "cwd_source": "Agent Plugins 1.0.0 section 7.2.1 default: plugin root",
+  "argv": [
+    "python3",
+    "/tmp/devin-canary-stdio/plugins/canary-plugin/canary_server.py"
+  ],
+  "plugin_environment": {
+    "PLUGIN_ROOT": "/tmp/devin-canary-stdio/plugins/canary-plugin",
+    "PLUGIN_DATA": "/var/tmp/devin-canary-plugin-data"
+  },
+  "environment_source": "Reserved variables supplied MANUALLY for diagnostic per section 9; NOT observed Cloud loader values. No configured env overrides. Ambient environment inherited.",
+  "requests": [
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "initialize",
+      "params": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {},
+        "clientInfo": {
+          "name": "manual-stdio-diagnostic",
+          "version": "1.0.0"
+        }
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "method": "notifications/initialized"
+    },
+    {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "tools/list"
+    },
+    {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "tools/call",
+      "params": {
+        "name": "canary_env",
+        "arguments": {}
+      }
+    }
+  ],
+  "responses": [
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {
+          "tools": {}
+        },
+        "serverInfo": {
+          "name": "canary-env",
+          "version": "1.0.0"
+        }
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "tools": [
+          {
+            "name": "canary_env",
+            "description": "Return the actual PLUGIN_ROOT and PLUGIN_DATA environment values.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"PLUGIN_ROOT\": \"/tmp/devin-canary-stdio/plugins/canary-plugin\", \"PLUGIN_DATA\": \"/var/tmp/devin-canary-plugin-data\"}"
+          }
+        ],
+        "isError": false
+      }
+    }
+  ],
+  "stdout": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"result\": {\"protocolVersion\": \"2025-06-18\", \"capabilities\": {\"tools\": {}}, \"serverInfo\": {\"name\": \"canary-env\", \"version\": \"1.0.0\"}}}\n{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"tools\": [{\"name\": \"canary_env\", \"description\": \"Return the actual PLUGIN_ROOT and PLUGIN_DATA environment values.\", \"inputSchema\": {\"type\": \"object\", \"properties\": {}, \"additionalProperties\": false}}]}}\n{\"jsonrpc\": \"2.0\", \"id\": 3, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"{\\\"PLUGIN_ROOT\\\": \\\"/tmp/devin-canary-stdio/plugins/canary-plugin\\\", \\\"PLUGIN_DATA\\\": \\\"/var/tmp/devin-canary-plugin-data\\\"}\"}], \"isError\": false}}\n",
+  "stderr": "",
+  "exit_code": 0,
+  "checks": {
+    "initialize": true,
+    "process_alive_before_stdin_eof": true,
+    "tools_list": true,
+    "tools_call": true,
+    "exit_zero_after_stdin_eof": true,
+    "stderr_empty": true,
+    "hook_unchanged": true
+  },
+  "result": "PASS",
+  "hook_before": {
+    "exists": false
+  },
+  "hook_after": {
+    "exists": false
+  },
+  "manual_mcp_registration_performed": false,
+  "manual_hook_execution_performed": false,
+  "automatic_cloud_loading_verified_by_this_test": false
+}
