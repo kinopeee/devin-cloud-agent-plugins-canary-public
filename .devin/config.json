@@ -1,0 +1,10 @@
+{
+  "requiredPlugins": [
+    {
+      "source": "git-subdir",
+      "url": "https://github.com/kinopeee/devin-cloud-agent-plugins-canary-public.git",
+      "path": "plugins/canary-plugin",
+      "sha": "a0517234ab0d79f3aaa119e550d15f33265baaff"
+    }
+  ]
+}
