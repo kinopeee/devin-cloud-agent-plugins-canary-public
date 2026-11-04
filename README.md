@@ -25,13 +25,13 @@ Agent Plugins 1.0.0 の Skills / stdio MCP と、Devin 固有の SessionStart Ho
       "source": "git-subdir",
       "url": "https://github.com/kinopeee/devin-cloud-agent-plugins-canary-public.git",
       "path": "plugins/canary-plugin",
-      "sha": "<PUBLIC_FIXTURE_SHA>"
+      "sha": "a0517234ab0d79f3aaa119e550d15f33265baaff"
     }
   ]
 }
 ```
 
-`<PUBLIC_FIXTURE_SHA>` は説明用のプレースホルダーです。Bブランチの実ファイルには、この公開リポジトリ内のfixtureコミットの40桁SHAを固定しています。正確な値は [Bの設定](https://github.com/kinopeee/devin-cloud-agent-plugins-canary-public/blob/condition-b-git-subdir/.devin/config.json) を参照してください。固定先の `plugins/canary-plugin/` と各条件のCanary本体は同一です。
+このSHAは公開リポジトリ内のfixtureコミットです。[Bの実際の設定](https://github.com/kinopeee/devin-cloud-agent-plugins-canary-public/blob/condition-b-git-subdir/.devin/config.json) にも同じ値を固定しています。固定先の `plugins/canary-plugin/` と各条件のCanary本体は同一です。
 
 ### C — `condition-c-control`
 
@@ -65,6 +65,14 @@ Agent Plugins 1.0.0 の Skills / stdio MCP と、Devin 固有の SessionStart Ho
 | C／2026-11-05 02:03:59 +09:00（2026-11-04 17:03:59Z） | 未検出／存在せず／非表示 | 未検出、呼び出し未実施 | 存在せず | 非表示 | 自動ローダーのエラー表示は観測されず |
 
 MCP/Hook未出現の原因は未特定で、Cloud全体の非対応とは断定していません。新規セッションで初回cloneした際のrepository setupを測定しており、最初のエージェントターンより前にプラグインを事前配置した実験ではありません。
+
+## Cloudでの手動stdio診断（自動読み込みとは別）
+
+2026-11-05 02:29:52 JST（2026-11-04 17:29:52 UTC）、公開版AをこのCloud VMに直接cloneし、`mcp.json` のコマンドを仕様の既定cwd・予約変数展開に従って手動起動しました。**CPython 3.12.16で起動し、initialize／tools/list／canary_env呼び出しに成功。標準エラーは0バイト、stdin EOF後の終了コードは0でした。**
+
+予約変数 `PLUGIN_ROOT` / `PLUGIN_DATA` は診断用に手動供給した値であり、Cloudローダーが注入した実測値ではありません。MCPの手動登録、Hookの手動実行はしていません。この成功で、過去の自動読み込み結果を書き換えたり、Cloudの自動接続成功を主張したりはしません。
+
+[公開URL・日時・cwd・引数・環境変数・返り値・stderrの記録](results/public-reproduction-stdio-ja.md) / [リクエスト・stdout・stderrを含むJSON記録](results/manual-stdio.json)
 
 ## 最小構成と検証
 
