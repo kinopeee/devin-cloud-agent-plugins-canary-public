@@ -1,0 +1,3 @@
+{
+  "requiredPlugins": ["./plugins/canary-plugin"]
+}
